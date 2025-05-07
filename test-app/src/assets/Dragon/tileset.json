@@ -1,0 +1,63 @@
+{
+  "asset": {
+    "version": "1.0"
+  },
+  "geometricError": 500,
+  "root": {
+    "boundingVolume": {
+      "box": [
+        0,
+        0,
+        0,
+        7.0955,
+        0,
+        0,
+        0,
+        3.1405,
+        0,
+        0,
+        0,
+        5.0375
+      ]
+    },
+    "geometricError": 1,
+    "refine": "ADD",
+    "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+    ],
+    "content": {
+      "uri": "dragon_high.b3dm"
+    },
+    "children": [],
+    "extras": {
+      "name": "dragon-high",
+      "objectID": "dragon-high",
+      "type": "TunnelModel",
+      "CatCode": "0",
+      "CatCodeDescription": "Underground Facility Structure, Unidentified, Function Unknown",
+      "Description": "UNCLASSIFIED ",
+      "ModelName": "dragonTest.ugf"
+    },
+    "extensions": {
+      "ARA_utm_coordinates": {
+          "northing": 0.0,
+          "easting": 0.0
+      }
+  }
+  }
+}
