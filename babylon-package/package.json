@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "description": "A simple scene using Babylon.js, typescript and webpack. What could go wrong?",
     "type": "module",
-    "module": "./dist/lib/esm/js/chunks.bundle.js",
+    "module": "./dist/lib/esm/js/main.mjs",
     "types": "./dist/lib/esm/types/index.d.ts",
     "files": [
         "dist",
@@ -13,7 +13,7 @@
         ".": {
             "import": {
                 "types": "./dist/lib/esm/types/index.d.ts",
-                "default": "./dist/lib/esm/js/chunks.bundle.js"
+                "default": "./dist/lib/esm/js/main.mjs"
             }
         }
     },
@@ -55,7 +55,7 @@
         "start:test": "npx webpack serve --config webpack.tests.js",
         "build:dev": "npx webpack --config webpack.dev.js --progress",
         "build:prod": "npx webpack --config webpack.prod.js --progress",
-        "build:noch": "npx webpack --config webpack.nochunk.js --progress",
+        "build:noch": "npx webpack --config webpack.nochunk.js --progress", 
         "build:external": "npx webpack --config webpack.external.js --progress",
         "lint": "npx eslint . --ext .ts,.tsx",
         "test:visuals": "npx playwright test",

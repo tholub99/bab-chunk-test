@@ -46,8 +46,6 @@ export default {
     },
     output: {
         path: path.resolve(__dirname, 'dist/lib/esm/js'),
-        filename: 'chunks.bundle.js',
-        chunkFilename: '[name].[contenthash].js',
         library: {
             type: 'module',
         },
@@ -89,11 +87,18 @@ export default {
                     enforce: true,
                     test: (module) => /\/WebGPU\//.test(module.resource),
                 },
-                babylonBundle: {
-                    name: "babylonBundle",
+                babylonCore: {
+                    name: "babylonCore",
+                    chunks: "all",
+                    priority: 40,
+                    reuseExistingChunk: true,
+                    test: (module) => /\/node_modules\/@babylonjs\/core/.test(module.resource),
+                },
+                babylonDependencies: {
+                    name: "babylonDependencies",
                     chunks: "all",
                     priority: 30,
-                    reuseExistingChunk: true,
+                    enforce: true,
                     test: (module) => /\/node_modules\/@babylonjs\//.test(module.resource),
                 },
             },
