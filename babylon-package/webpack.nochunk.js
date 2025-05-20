@@ -1,7 +1,8 @@
 import path, { resolve as _resolve } from "path";
-import { fileURLToPath } from 'url';
-import HtmlWebpackPlugin from "html-webpack-plugin";
+import TerserPlugin from 'terser-webpack-plugin';
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import { fileURLToPath } from 'url';
+import webpack from "webpack";
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 // App directory
@@ -65,39 +66,25 @@ export default {
         },
         open: true,
     },
+    mode: 'production',
+    devtool: 'source-map',
+    plugins: [
+        new CleanWebpackPlugin(),
+        new webpack.optimize.LimitChunkCountPlugin({
+            maxChunks: 1,
+        }),
+    ],
     optimization: {
-        splitChunks: {
-            cacheGroups: {
-                webgpuShaders: {
-                    name: "webgpu-shaders",
-                    chunks: "all",
-                    priority: 50,
-                    enforce: true,
-                    test: (module) => /\/ShadersWGSL\//.test(module.resource),
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                extractComments: false,
+                terserOptions: {
+                    compress: {
+                        pure_funcs: ['console.assert', 'console.debug', 'console.error', 'console.warn'],
+                    },
                 },
-                webglShaders: {
-                    name: "webgl-shaders",
-                    chunks: "all",
-                    priority: 50,
-                    enforce: true,
-                    test: (module) => /\/Shaders\//.test(module.resource),
-                },
-                webgpuExtensions: {
-                    name: "webgpu-extensions",
-                    chunks: "all",
-                    priority: 50,
-                    enforce: true,
-                    test: (module) => /\/WebGPU\//.test(module.resource),
-                },
-                babylonBundle: {
-                    name: "babylonBundle",
-                    chunks: "all",
-                    priority: 30,
-                    reuseExistingChunk: true,
-                    test: (module) => /\/node_modules\/@babylonjs\//.test(module.resource),
-                },
-            },
-        },
-        usedExports: true,
+            }),
+        ],
     },
 }

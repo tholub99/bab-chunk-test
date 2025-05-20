@@ -3,3 +3,6 @@ dist
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+# Dist output
+dist

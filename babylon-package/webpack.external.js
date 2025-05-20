@@ -5,6 +5,10 @@ import common from './webpack.common.js';
 
 export default merge(common, {
     mode: 'production',
+    externals: [
+        /^@babylonjs.*$/,
+    ],
+    devtool: 'source-map',
     optimization: {
         minimize: true,
         minimizer: [

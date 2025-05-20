@@ -6,11 +6,11 @@ import { BabylonComponent } from '../babylon-component/babylon.component';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, BabylonComponent],
-  templateUrl: './single-view.component.html',
-  styleUrls: ['./single-view.component.css', '../sandbox-styles.css']
+  templateUrl: './view.component.html',
+  styleUrls: ['./view.component.css', '../sandbox-styles.css']
 })
 
-export class SingleViewComponent {
+export class ViewComponent {
   title = 'babylon-view';
   @ViewChild(BabylonComponent, {static: true}) babylonComponent: BabylonComponent | undefined;
 }
