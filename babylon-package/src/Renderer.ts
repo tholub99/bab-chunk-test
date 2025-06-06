@@ -10,6 +10,7 @@ import { Vector3 } from "@babylonjs/core/Maths/math.vector";
 import { CreateGround } from "@babylonjs/core/Meshes/Builders/groundBuilder";
 import { CreateSphere } from "@babylonjs/core/Meshes/Builders/sphereBuilder";
 import { IDisposable, Scene } from "@babylonjs/core/scene";
+import "@babylonjs/core/Engines/AbstractEngine/abstractEngine.views";
 
 export default class Renderer implements IDisposable {
     private _engine: AbstractEngine;
